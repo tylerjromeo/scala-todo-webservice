@@ -2,7 +2,7 @@
 
 1. Git-clone this repository.
 
-        $ git clone git://github.com/spray/spray-template.git my-project
+        $ git clone https://github.com/tylerjromeo/todo-list-sample.git my-project
 
 2. Change directory into your clone:
 
