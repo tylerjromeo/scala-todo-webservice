@@ -60,7 +60,7 @@ trait TaskService extends HttpService {
             onSuccess(TaskDAO.addTask(task)) { value =>
               requestUri { uri =>
                 respondWithHeader(Location(uri + s"/${value}")) {
-                  complete(StatusCodes.Created)
+                  complete(StatusCodes.Created, task.copy(id=value))
                 }
               }
             }
@@ -92,7 +92,7 @@ trait TaskService extends HttpService {
                           requestUri {
                             uri =>
                               respondWithHeader(Location(uri)) {
-                                complete(StatusCodes.Created)
+                                complete(StatusCodes.Created, task)
                               }
                           }
                       }
