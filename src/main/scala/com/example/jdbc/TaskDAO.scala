@@ -8,15 +8,8 @@ package com.example.jdbc
  */
 
 
-import scala.concurrent.ExecutionContext.Implicits.global
 import slick.driver.PostgresDriver.api._
 import spray.json._
-
-case class AddTask(task:TaskDAO.Task)
-case class DeleteTask(id:Int)
-case class UpdateTask(task:TaskDAO.Task)
-case class GetTask(id:Int)
-case object GetAllTasks
 
 object TaskDAO {
   //TODO unit tests
@@ -49,9 +42,6 @@ object TaskDAO {
 
   val createTables = tasksQuery.schema.create
 
-//  val testDataStatements = DBIO.seq(addTaskQuery(Task(None, "Do the first thing", complete = true)),
-//    addTaskQuery(Task(None, "Do the second thing", complete = false)),
-//    addTaskQuery(Task(None, "Do the third thing", complete = false)))
 
   private def testDataStatements(tasks: Seq[Task]) = {
     DBIO.sequence(tasks.map(t => addTaskQuery(t)))
