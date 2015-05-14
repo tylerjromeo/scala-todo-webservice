@@ -14,7 +14,7 @@ import spray.json._
 object TaskDAO {
   //TODO unit tests
 
-  val db = Database.forConfig("postgres")
+  val db = Database.forConfig("h2mem1")
 
   case class Task(
                    id: Option[Int],
